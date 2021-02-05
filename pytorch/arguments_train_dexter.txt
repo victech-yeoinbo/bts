@@ -1,0 +1,33 @@
+--mode train
+--model_name bts_dexter_pytorch_densenet161
+--encoder densenet161_bts
+--dataset dexter
+--data_path ../../dataset/dexter/
+--gt_path ../../dataset/dexter/
+--filenames_file ../../dataset/dexter/dexter_train_all.txt
+--batch_size 4
+--num_epochs 50
+--learning_rate 1e-4
+--weight_decay 1e-2
+--adam_eps 1e-3
+--num_threads 8
+--input_height 256
+--input_width 512
+--max_depth 20
+#--do_kb_crop
+#--do_random_rotate
+--degree 1.0
+--log_directory ./models/
+--multiprocessing_distributed
+--dist_url tcp://127.0.0.1:2345
+
+--log_freq 100
+--do_online_eval
+--eval_freq 500
+--data_path_eval ../../dataset/dexter/
+--gt_path_eval ../../dataset/dexter/
+--filenames_file_eval ../../dataset/dexter/dexter_val.txt
+--min_depth_eval 1e-3
+--max_depth_eval 20
+--eval_summary_directory ./models/eval/
+#--garg_crop

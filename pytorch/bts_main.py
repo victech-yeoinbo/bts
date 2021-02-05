@@ -41,7 +41,7 @@ from bts_dataloader import *
 
 def convert_arg_line_to_args(arg_line):
     for arg in arg_line.split():
-        if not arg.strip():
+        if not arg.strip() or arg.strip().startswith('#'):
             continue
         yield arg
 

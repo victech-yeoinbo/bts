@@ -176,10 +176,10 @@ def test(params):
         pred_2x2 = pred_2x2s[s]
         pred_1x1 = pred_1x1s[s]
         
-        if args.dataset == 'kitti' or args.dataset == 'kitti_benchmark':
-            pred_depth_scaled = pred_depth * 256.0
-        else:
+        if args.dataset == 'nyu':
             pred_depth_scaled = pred_depth * 1000.0
+        else:
+            pred_depth_scaled = pred_depth * 256.0
         
         pred_depth_scaled = pred_depth_scaled.astype(np.uint16)
         cv2.imwrite(filename_pred_png, pred_depth_scaled, [cv2.IMWRITE_PNG_COMPRESSION, 0])
